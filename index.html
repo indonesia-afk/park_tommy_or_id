@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>t-o-m.my.id — Halaman Under Construction</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+  --bg: #000000;
+  --retro-green: #39ff14;
+  --scanline: rgba(57, 255, 20, 0.03);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(ellipse at center, #061014 0%, var(--bg) 60%);
+  color: var(--retro-green);
+  font-family: 'Share Tech Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.frame {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  max-width: 480px;
+  padding: 1.5rem 1rem 2.5rem;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid rgba(57, 255, 20, 0.08);
+  backdrop-filter: blur(0.2px);
+  animation: flicker 0.15s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.85; }
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 8vw, 3rem);
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  line-height: 1.4;
+  text-shadow: 0 0 8px rgba(57, 255, 20, 0.12), 0 0 24px rgba(57, 255, 20, 0.06);
+  position: relative;
+}
+
+.scanlines {
+  position: relative;
+  display: inline-block;
+}
+
+.scanlines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(transparent 50%, var(--scanline) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.8;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.3ch;
+  margin-left: 0.3rem;
+  background: var(--retro-green);
+  height: 1em;
+  vertical-align: middle;
+  animation: blink 1s steps(2, start) infinite;
+  box-shadow: 0 0 8px rgba(57, 255, 20, 0.6);
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.icon-construction {
+  margin-top: 1.5rem;
+  width: 60px;
+  height: 60px;
+  fill: var(--retro-green);
+  filter: drop-shadow(0 0 6px var(--retro-green));
+  animation: swing 3s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+}
+
+.footer {
+  margin-top: 1.2rem;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+.footer p {
+  font-size: 0.7rem;
+  color: rgba(57, 255, 20, 0.65);
+  margin-bottom: 0.4rem;
+}
+
+.footer a {
+  color: var(--retro-green);
+  text-decoration: none;
+  display: block;
+  font-size: 0.8rem;
+  margin: 0.2rem 0;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.45));
+  mix-blend-mode: multiply;
+  z-index: -1;
+}
+
+@media (max-width: 360px) {
+  body {
+    padding: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="frame" role="main" aria-labelledby="uc">
+    <h1 id="uc" class="scanlines">
+      Under Construction<span class="cursor" aria-hidden="true"></span>
+    </h1>
+
+<svg class="icon-construction" viewBox="0 0 64 32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" >
+  <!-- Rangka pagar satu baris -->
+  <rect x="2" y="6" width="60" height="12" stroke="none" fill="#ffc107"/>
+  <rect x="0" y="0" width="8" height="32" stroke="none" fill="#555"/>
+  <rect x="56" y="0" width="8" height="32" stroke="none" fill="#555"/>
+  <!-- Garis diagonal hitam -->
+  <path d="M2 6 L12 18 L2 18 Z" fill="#212121"/>
+  <path d="M14 6 L24 18 L14 18 Z" fill="#212121"/>
+  <path d="M26 6 L36 18 L26 18 Z" fill="#212121"/>
+  <path d="M38 6 L48 18 L38 18 Z" fill="#212121"/>
+  <path d="M50 6 L60 18 L50 18 Z" fill="#212121"/>
+</svg>
+
+  <div class="footer">
+    <p>Cek project kami yang lain:</p>
+    <a href="http://espeje.com" target="_blank">Desktop App eSPeJe 2025</a>
+    <a href="https://sppd.espeje.com" target="_blank">SPPD Online</a>
+    <a href="https://news.t-o-m.my.id/" target="_blank">Informasi & Berita</a>
+  </div>
+
+  <div class="vignette" aria-hidden="true"></div>
+</body>
+</html>
